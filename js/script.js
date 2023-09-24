@@ -4,14 +4,14 @@ class GetValores {
         this.formulario = document.getElementById('ordemServico');
         this.resultados = document.getElementById('resultados');
 
-        
+
         this.formulario.addEventListener('submit', this.enviarTextos.bind(this));
     }
 
     enviarTextos(event) {
-        event.preventDefault(); 
+        event.preventDefault();
 
-        
+
         const protocolo = document.getElementById('protocolo').value.replace(/\n/g, '<br>');
         const descricao = document.getElementById('descricao').value;
         const endereco = document.getElementById('endereco').value;
@@ -29,11 +29,27 @@ class GetValores {
         const modelo1 = document.getElementById('modelo1').value;
         const modelo2 = document.getElementById('modelo2').value;
         const contrato = document.getElementById('contrato').value;
-        
-        
+
         this.resultados.innerHTML = '';
-        
-        
+        document.getElementById('protocolo').value = '';
+        document.getElementById('descricao').value = '';
+        document.getElementById('endereco').value = '';
+        document.getElementById('telefone1').value = '';
+        document.getElementById('telefone2').value = '';
+        document.getElementById('telefone3').value = '';
+        document.getElementById('ppoe_login').value = '';
+        document.getElementById('ppoe_senha').value = '';
+        document.getElementById('vlan').value = '';
+        document.getElementById('equipamento1').value = '';
+        document.getElementById('equipamento2').value = '';
+        document.getElementById('potencia').value = '';
+        document.getElementById('localizacao').value = '';
+        document.getElementById('referencia').value = '';
+        document.getElementById('modelo1').value = '';
+        document.getElementById('modelo2').value = '';
+        document.getElementById('contrato').value = '';
+
+
         const resultadoProtocolo = document.createElement('li');
         resultadoProtocolo.textContent = `Protocolo: ${protocolo}`;
         this.resultados.appendChild(resultadoProtocolo);
@@ -42,12 +58,9 @@ class GetValores {
         resultadoLinhaB.textContent = ` `;
         this.resultados.appendChild(resultadoLinhaB);
 
-        
         const resultadoLinha = document.createElement('li');
         resultadoLinha.textContent = `===========================`;
         this.resultados.appendChild(resultadoLinha);
-        
-       
 
         const resultadoDescricao = document.createElement('li');
         resultadoDescricao.textContent = `Descrição do Problema: ${descricao}`;
@@ -72,7 +85,6 @@ class GetValores {
         const resultadoLinhaB6 = document.createElement('li');
         resultadoLinhaB6.textContent = ` `;
         this.resultados.appendChild(resultadoLinhaB6);
-
 
         const resultadoTelefone1 = document.createElement('li');
         resultadoTelefone1.textContent = `Telefone: ${telefone1}`;
@@ -101,7 +113,6 @@ class GetValores {
         const resultadoLinhaB4 = document.createElement('li');
         resultadoLinhaB4.textContent = ` `;
         this.resultados.appendChild(resultadoLinhaB4);
-
 
         const resultadoLinha4 = document.createElement('li');
         resultadoLinha4.textContent = `===========================`;
@@ -132,24 +143,25 @@ class GetValores {
         this.resultados.appendChild(resultadoLinha5);
 
         const resultadoModelo1 = document.createElement('li');
-        resultadoModelo1.textContent = `Modelo: ${modelo1}`;
+        resultadoModelo1.textContent = `Modelo 1: ${modelo1}`;
         this.resultados.appendChild(resultadoModelo1);
 
         const resultadoEquipamento1 = document.createElement('li');
-        resultadoEquipamento1.textContent = `Equipamento: ${equipamento1}`;
+        resultadoEquipamento1.textContent = `Equipamento 1: ${equipamento1}`;
         this.resultados.appendChild(resultadoEquipamento1);
-
-        const resultadoModelo2 = document.createElement('li');
-        resultadoModelo2.textContent = `Modelo: ${modelo2}`;
-        this.resultados.appendChild(resultadoModelo2);
-
-        const resultadoEquipamento2 = document.createElement('li');
-        resultadoEquipamento2.textContent = `Equipamento: ${equipamento2}`;
-        this.resultados.appendChild(resultadoEquipamento2);
 
         const resultadoPotencia = document.createElement('li');
         resultadoPotencia.textContent = `Potência: ${potencia}`;
         this.resultados.appendChild(resultadoPotencia);
+
+
+        const resultadoModelo2 = document.createElement('li');
+        resultadoModelo2.textContent = `Modelo 2: ${modelo2}`;
+        this.resultados.appendChild(resultadoModelo2);
+
+        const resultadoEquipamento2 = document.createElement('li');
+        resultadoEquipamento2.textContent = `Equipamento 2: ${equipamento2}`;
+        this.resultados.appendChild(resultadoEquipamento2);
 
     }
 }
@@ -196,6 +208,9 @@ checkboxes2.forEach(checkbox => {
         }
     });
 });
+
+
+
 
 
 window.addEventListener('load', () => {

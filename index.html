@@ -1,101 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    
+
     <title>Ordem de Serviço</title>
 </head>
+
 <body>
     <img src="images/logo.png">
 
     <form id="ordemServico">
 
 
-        
-        
-        <label for="protocolo">Protocolo:</label>
-        <input type="text" id="protocolo" name="protocolo" placeholder="Protocolo de Atendimento" size="25" required > <br>
 
-        <label for="descricao">Descrição do Problema:</label>
-        <textarea id="descricao" name="descricao" rows="10" cols="50" required></textarea><br>
+
+        <label for="protocolo" class="label">Protocolo:</label>
+        <input type="text" class="box" id="protocolo" name="protocolo" placeholder="Protocolo de Atendimento" required>
+        <br>
+
+        <label for="descricao" class="label">Descrição do Problema:</label>
+        <textarea id="descricao" class="descricao" name="descricao" required></textarea><br>
 
         <label for="endereco">Endereço:</label>
-        <textarea id="endereco" name="endereco" placeholder="Informe o endereço do cliente" size="5" cols="50" required> </textarea><br>
-     
+        <textarea id="endereco" class="descricao" name="endereco" placeholder="Informe o endereço do cliente"
+            required> </textarea><br>
+
         <label for="referencia">Ponto de Referência:</label>
-        <input type="text" id="referencia" name="referencia" placeholder="Informe um Ponto de Referência:" > <br>
+        <input type="text" id="referencia" class="box" name="referencia" placeholder="Informe um Ponto de Referência:">
+        <br>
 
         <label for="localizacao">Geolocalização:</label>
-        <textarea id="localizacao" name="localizacao" placeholder="Informe o link da localização do cliente" size="5" cols="50" required> </textarea><br>
-     
+        <textarea id="localizacao" class="geo" name="localizacao"
+            placeholder="Informe o link da localização do cliente"> </textarea><br>
 
         <label for="telefone1">Telefone:</label>
-        <input type="text" id="telefone1" name="telefone1" placeholder="Informe o Contato do cliente" required> <br>
+        <input type="text" class="box" id="telefone1" name="telefone1" placeholder="Informe o Contato do cliente"
+            required> <br>
 
         <label for="telefone2">Telefone:</label>
-        <input type="text" id="telefone2" name="telefone2" placeholder="Informe o Contato do cliente"> <br>
+        <input type="text" class="box" id="telefone2" name="telefone2" placeholder="Informe o Contato do cliente"> <br>
 
         <label for="telefone3">Telefone:</label>
-        <input type="text" id="telefone3" name="telefone3" placeholder="Informe o Contato do cliente"> <br>
+        <input type="text" class="box" id="telefone3" name="telefone3" placeholder="Informe o Contato do cliente"> <br>
 
         <label for="contrato">Contrato:</label>
-        <input type="text" id="contrato" name="contrato" placeholder="Informe o Contrato do cliente" required> <br>
-       
+        <input type="text" class="box" id="contrato" name="contrato" placeholder="Informe o Contrato do cliente"
+            required> <br>
+
         <label for="ppoe_login">Login PPOE:</label>
-        <input type="text" id="ppoe_login" name="ppoe_login" placeholder="Informe o login do PPOE" required> <br>
-     
+        <input type="text" class="boxp" id="ppoe_login" name="ppoe_login" placeholder="Informe o login do PPOE" required>
+        <br>
+
         <label for="ppoe_senha">Senha PPOE:</label>
-        <input type="text" id="ppoe_senha" name="ppoe_senha" placeholder="Informe a senha do PPOE" required> <br>
-       
-        <label for="vlan">VLAN ID:</label>
-        <input type="text" id="vlan" name="vlan" placeholder="0000" maxlength="4" size="5" required> <br>
+        <input type="text" class="boxp" id="ppoe_senha" name="ppoe_senha" placeholder="Informe a senha do PPOE" required>
+        <br>
+
+        <label for="vlan" id="lvlan">VLAN ID:</label>
+        <input type="text" class="box" id="vlan" name="vlan" placeholder="0000" maxlength="4" required> <br>
 
         <label for="modelo1">Modelo do Equipamento 1:</label>
-        <input type="text" id="modelo1" name="modelo1" placeholder="Informe número de série do equipamento" required> <br>
+        <input type="text" class="box" id="modelo1" name="modelo1" placeholder="Informe número de série do equipamento"
+            required> <br>
 
-        <label for="equipamento1">Número de Série do Equipamento 1:</label>
-        <input type="text" id="equipamento1" name="equipamento1" placeholder="Informe número de série do equipamento" required> <br>
+        <label for="equipamento1">Nº de Série do Equipamento 1:</label>
+        <input type="text" class="box" id="equipamento1" name="equipamento1"
+            placeholder="Informe número de série do equipamento" required> <br>
 
         <label for="modelo2">Modelo do Equipamento 2:</label>
-        <input type="text" id="modelo2" name="modelo2" placeholder="Informe número de série do equipamento" > <br>
+        <input type="text" class="box" id="modelo2" name="modelo2" placeholder="Informe número de série do equipamento">
+        <br>
 
 
-        <label for="equipamento2">Número de Série do Equipamento 2:</label>
-        <input type="text" id="equipamento2" name="equipamento2" placeholder="Informe número de série do equipamento"> <br>
+        <label for="equipamento2">Nº de Série do Equipamento 2:</label>
+        <input type="text" class="box" id="equipamento2" name="equipamento2"
+            placeholder="Informe número de série do equipamento"> <br>
 
         <label for="potencia">Potência:</label>
-        <input type="text" id="potencia" name="potencia" placeholder="-00.00"  size="5"> <br>
+        <input type="text" class="box" id="potencia" name="potencia" placeholder="-00.00"> <br>
+<br>
 
-        
-          <label> <legend><b>Anexou o Print da OLT nos Anexos?</b></legend>
+<div>
+        <label>
+            <legend><b>Anexou o Print da OLT nos Anexos?</b></legend>
             <label>
-              <input type="checkbox" name="anexo" value="sim" required> Sim
-          </label>
-          <br>
-          <label>
-              <input type="checkbox" name="anexo" value="nao"> Não
-          </label>
-          <br>
-          <p id="mensagem" style="font-weight: bold; color: red;"></p>
-
-
-          
-          <label> <legend><b>Ajustou a Controladora?</b></legend>
+                <input type="checkbox" name="anexo" value="sim" required> Sim
+            </label>
+            <br>
             <label>
-              <input type="checkbox" name="controladora" value="yes" required> Sim
-          </label>
-          <br>
-          <label>
-              <input type="checkbox" name="controladora" value="no"> Não
-          </label>
-          <br>
-          <p id="mensagem2" style="font-weight: bold; color: red;"></p>
+                <input type="checkbox" name="anexo" value="nao"> Não
+            </label>
+            <br>
+            <p id="mensagem" style="font-weight: bold; color: red;"></p>
 
-            
-            
-            <button type="submit" id="btn-enviar">Enviar</button>
+        </div>
+
+
+            <label>
+                <legend><b>Ajustou a Controladora?</b></legend>
+                <label>
+                    <input type="checkbox" name="controladora" value="yes" required> Sim
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="controladora" value="no"> Não
+                </label>
+                <br>
+                <p id="mensagem2" style="font-weight: bold; color: red;"></p>
+
+<br>
+<br>
+<br>
+                <div class="container">
+                    <div class="center">
+                <button type="submit" class="button" id="btn-enviar">
+                <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+                  </svg>
+                  <span><b>Enviar</b></span>
+            </button>
+        </div>
+    </div>                  
+    <br>
+    <br>
+    <br>
+                
 
     </form>
 
@@ -103,8 +135,11 @@
     <span>=================================</span>
     <ul id="resultados"></ul>
     <span>=================================</span>
-        <br>
+    <br>
+    <br>
+    <br>
     <span><b>Desenvolvido por Carlos Mozart</b></span>
     <script src="./js/script.js"></script>
 </body>
+
 </html>
