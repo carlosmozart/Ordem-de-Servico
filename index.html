@@ -14,7 +14,27 @@
 
     <form id="ordemServico">
 
+        <label for="titulo" class="label">Tipo de Atendimento:</label>
+        <select id=titulo class="box">
+            <option value=""></option>
+            <option value="DESCONECTADO">DESCONECTADO</option>
+            <option value="ESPECIALIZADO">ESPECIALIZADO</option>
+            <option value="POTÊNCIA IRREGULAR">POTÊNCIA IRREGULAR</option>
+            <option value="MUDANÇA DE PONTO">MUDANÇA DE PONTO</option>
+            <option value="MUDANÇA DE ENDEREÇO">MUDANÇA DE ENDEREÇO</option>
+            <option value="PONTO EXTRA">PONTO EXTRA</option>
+            <option value="TROCA DE EQUIPAMENTO">TROCA DE EQUIPAMENTO</option>
+            <option value="TROCA DE SENHA">TROCA DE SENHA</option>
+        </select>
+        <br>
 
+        <label for="tituloh" class="label">Período Preferencial:</label>
+        <select id=periodo class="box">
+            <option value=""></option>
+            <option value="MANHÃ">MANHÃ</option>
+            <option value="TARDE">TARDE</option>
+        </select>
+        <br>
 
 
         <label for="protocolo" class="label">Protocolo:</label>
@@ -51,11 +71,13 @@
             required> <br>
 
         <label for="ppoe_login">Login PPOE:</label>
-        <input type="text" class="boxp" id="ppoe_login" name="ppoe_login" placeholder="Informe o login do PPOE" required>
+        <input type="text" class="boxp" id="ppoe_login" name="ppoe_login" placeholder="Informe o login do PPOE"
+            required>
         <br>
 
         <label for="ppoe_senha">Senha PPOE:</label>
-        <input type="text" class="boxp" id="ppoe_senha" name="ppoe_senha" placeholder="Informe a senha do PPOE" required>
+        <input type="text" class="boxp" id="ppoe_senha" name="ppoe_senha" placeholder="Informe a senha do PPOE"
+            required>
         <br>
 
         <label for="vlan" id="lvlan">VLAN ID:</label>
@@ -80,64 +102,86 @@
 
         <label for="potencia">Potência:</label>
         <input type="text" class="box" id="potencia" name="potencia" placeholder="-00.00"> <br>
-<br>
+        <br>
 
-<div>
+        <div>
+            <label>
+                <legend><b>Anexou o Print da OLT nos Anexos?</b></legend>
+                <label>
+                    <input type="checkbox" name="anexo" value="sim" required> Sim
+                </label>
+                <br>
+                <label>
+                    <input type="checkbox" name="anexo" value="nao"> Não
+                </label>
+                <br>
+                <p id="mensagem" style="font-weight: bold; color: red;"></p>
+
+        </div>
+
+
         <label>
-            <legend><b>Anexou o Print da OLT nos Anexos?</b></legend>
+            <legend><b>Ajustou a Controladora?</b></legend>
             <label>
-                <input type="checkbox" name="anexo" value="sim" required> Sim
+                <input type="checkbox" name="controladora" value="yes" required> Sim
             </label>
             <br>
             <label>
-                <input type="checkbox" name="anexo" value="nao"> Não
+                <input type="checkbox" name="controladora" value="no"> Não
             </label>
             <br>
-            <p id="mensagem" style="font-weight: bold; color: red;"></p>
+            <p id="mensagem2" style="font-weight: bold; color: red;"></p>
 
-        </div>
+            <br>
+            <br>
+            <br>
+            <div class="container">
+                <div class="center">
+                    <button type="submit" class="button" id="btn-enviar">
+                        <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+                            <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+                            <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+                        </svg>
+                        <span><b>Enviar</b></span>
+                    </button>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
 
-
-            <label>
-                <legend><b>Ajustou a Controladora?</b></legend>
-                <label>
-                    <input type="checkbox" name="controladora" value="yes" required> Sim
-                </label>
-                <br>
-                <label>
-                    <input type="checkbox" name="controladora" value="no"> Não
-                </label>
-                <br>
-                <p id="mensagem2" style="font-weight: bold; color: red;"></p>
-
-<br>
-<br>
-<br>
-                <div class="container">
-                    <div class="center">
-                <button type="submit" class="button" id="btn-enviar">
-                <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
-                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
-                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
-                  </svg>
-                  <span><b>Enviar</b></span>
-            </button>
-        </div>
-    </div>                  
-    <br>
-    <br>
-    <br>
-                
 
     </form>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <p>Resultados:</p>
+
     <span>=================================</span>
     <ul id="resultados"></ul>
     <span>=================================</span>
     <br>
     <br>
     <br>
+
+    <div class="container">
+        <div class="center">
+            <button type="submit" class="button" id="btn-copiar">
+                <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
+                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
+                    <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
+                </svg>
+                <span><b>Copiar os Dados</b></span>
+            </button>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
     <span><b>Desenvolvido por Carlos Mozart</b></span>
     <script src="./js/script.js"></script>
 </body>
