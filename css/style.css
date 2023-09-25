@@ -90,11 +90,23 @@ textarea {
 }
 
 .container {
-  width: 400px;
-  height: 400px;
+  width: 100px;
+  height: 100px;
   position: absolute;
   left: 50%;
-  
+  top: 97%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container2 {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  left: 85%;
+  top: 97%;
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
@@ -145,13 +157,28 @@ svg {
   font-weight: 100;
 }
 
-label{
-  
+label {
+
   display: inline-block;
-  width: 240px; /* width a ajustar */
+  width: 240px;
+  /* width a ajustar */
   height: 200;
   text-align: start;
   padding-right: 10px;
   padding-bottom: 20px;
 }
 
+.dashboard {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 10;
+}
+
+.section {
+  flex: 1;
+  padding: 20px;
+  border-radius: 10;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
