@@ -3,14 +3,14 @@ class GetValores {
     constructor() {
         this.formulario = document.getElementById('ordemServico');
         this.resultados = document.getElementById('resultados');
-
-
         this.formulario.addEventListener('submit', this.enviarTextos.bind(this));
+        this.botaoCopiar = document.getElementById("btn-copiar");
+        this.minhaLista = document.getElementById("resultados");
+        this.botaoCopiar.addEventListener("click", () => this.copiarParaAreaDeTransferencia());
     }
 
     enviarTextos(event) {
         event.preventDefault();
-
 
         const protocolo = document.getElementById('protocolo').value.replace(/\n/g, '<br>');
         const descricao = document.getElementById('descricao').value;
@@ -29,8 +29,11 @@ class GetValores {
         const modelo1 = document.getElementById('modelo1').value;
         const modelo2 = document.getElementById('modelo2').value;
         const contrato = document.getElementById('contrato').value;
+        const titulo = document.getElementById('titulo').value;
+        const periodo = document.getElementById('periodo').value;
 
         this.resultados.innerHTML = '';
+
         document.getElementById('protocolo').value = '';
         document.getElementById('descricao').value = '';
         document.getElementById('endereco').value = '';
@@ -48,7 +51,25 @@ class GetValores {
         document.getElementById('modelo1').value = '';
         document.getElementById('modelo2').value = '';
         document.getElementById('contrato').value = '';
+        document.getElementById('titulo').value = '';
+        document.getElementById('periodo').value = '';
 
+
+        const resultadoTitulo = document.createElement('li');
+        resultadoTitulo.textContent = `Tipo de Atendimento: ${titulo}`;
+        this.resultados.appendChild(resultadoTitulo);
+
+        const resultadoLinha7 = document.createElement('li');
+        resultadoLinha7.textContent = `===========================`;
+        this.resultados.appendChild(resultadoLinha7);
+
+        const resultadoPeriodo = document.createElement('li');
+        resultadoPeriodo.textContent = `Preferência de Turno: ${periodo}`;
+        this.resultados.appendChild(resultadoPeriodo);
+
+        const resultadoLinha8 = document.createElement('li');
+        resultadoLinha8.textContent = `===========================`;
+        this.resultados.appendChild(resultadoLinha8);
 
         const resultadoProtocolo = document.createElement('li');
         resultadoProtocolo.textContent = `Protocolo: ${protocolo}`;
@@ -164,9 +185,25 @@ class GetValores {
         this.resultados.appendChild(resultadoEquipamento2);
 
     }
+
+
+    copiarParaAreaDeTransferencia() {
+
+        const listaTexto = Array.from(this.minhaLista.querySelectorAll("li"))
+            .map(item => item.textContent)
+            .join("\n");
+
+        const textarea = document.createElement("textarea");
+        textarea.value = listaTexto;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+        alert("Lista copiada para a área de transferência!");
+    }
+
+
 }
-
-
 
 const checkboxes1 = document.querySelectorAll('input[name="anexo"]');
 const checkboxes2 = document.querySelectorAll('input[name="controladora"]');
@@ -216,3 +253,4 @@ checkboxes2.forEach(checkbox => {
 window.addEventListener('load', () => {
     const minhaInstancia = new GetValores();
 });
+
