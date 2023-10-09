@@ -93,8 +93,7 @@ textarea {
   width: 100px;
   height: 100px;
   position: absolute;
-  left: 50%;
-  top: 97%;
+  left: 85%;
   transform: translate(-50%, -50%);
   display: flex;
   justify-content: center;
