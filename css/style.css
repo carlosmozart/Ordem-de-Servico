@@ -26,6 +26,7 @@ body {
   width: 300px;
   height: 30px;
   border-radius: 10px;
+  margin: auto;
 
 }
 
@@ -44,13 +45,9 @@ body {
   border-radius: 10px;
   text-transform: capitalize;
   margin: auto;
-  display: inline;
+  display: inline-block; /* Garante que o textarea ocupe a largura definida */
   border: 1px solid #000000;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  box-shadow: 1px 1px 2px #333333;
-  -moz-box-shadow: 1px 1px 2px #333333;
-  -webkit-box-shadow: 1px 1px 2px #333333;
+  /* Outros estilos conforme necessário */
 }
 
 input[type=text] {
@@ -157,11 +154,8 @@ svg {
 }
 
 label {
-
   display: inline-block;
   width: 240px;
-  /* width a ajustar */
-  height: 200;
   text-align: start;
   padding-right: 10px;
   padding-bottom: 20px;
@@ -180,4 +174,25 @@ label {
   border-radius: 10;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   text-align: center;
+}
+
+
+.input-container {
+    display: flex;
+    align-items: center;
+}
+
+.label {
+    flex: 0 0 auto;
+    margin-right: 10px; 
+}
+
+.descricao {
+    flex: 1;
+   
+    height: 100px;
+    border-radius: 10px;
+    text-transform: capitalize;
+    border: 1px solid #000000;
+    
 }
