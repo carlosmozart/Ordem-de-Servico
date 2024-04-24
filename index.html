@@ -16,9 +16,8 @@
 
         <div class="dashboard">
             <div class="section section1">
-
                 <label for="titulo" class="label">Tipo de Atendimento:</label>
-                <select id=titulo class="box">
+                <select id="titulo" class="box">
                     <option value=""></option>
                     <option value="ANÁLISE DE CONEXÃO">ANÁLISE DE CONEXÃO</option>
                     <option value="DESCONECTADO">DESCONECTADO</option>
@@ -31,107 +30,82 @@
                     <option value="TROCA DE SENHA">TROCA DE SENHA</option>
                     <option value="TELEFONIA">TELEFONIA</option>
                 </select>
-
+            
                 <label for="tituloh" class="label">Período Preferencial:</label>
-                <select id=periodo class="box">
+                <select id="periodo" class="box">
                     <option value=""></option>
                     <option value="MANHÃ">MANHÃ</option>
                     <option value="TARDE">TARDE</option>
                     <option value="COMERCIAL">COMERCIAL</option>
                 </select>
-
+            
                 <label for="protocolo" class="label">Protocolo:</label>
-                <input type="text" class="box" id="protocolo" name="protocolo" placeholder="Protocolo de Atendimento"
-                    required>
-                <br>
-
+                <input type="text" class="box" id="protocolo" name="protocolo" placeholder="Protocolo de Atendimento" required>
+            
                 <label for="descricao" class="label">Descrição do Problema:</label>
-                <textarea id="descricao" class="descricao" name="descricao" required></textarea><br>
-
-                <label for="endereco">Endereço:</label>
-                <textarea id="endereco" class="descricao" name="endereco" placeholder="Informe o endereço do cliente"
-                    required> </textarea><br>
-
-                <label for="referencia">Ponto de Referência:</label>
-                <input type="text" id="referencia" class="box" name="referencia"
-                    placeholder="Informe um Ponto de Referência:">
-                <br>
-
-                <label for="localizacao">Geolocalização:</label>
-                <textarea id="localizacao" class="geo" name="localizacao"
-                    placeholder="Informe o link da localização do cliente"> </textarea><br>
-
-                <label for="telefone1">Telefone:</label>
-                <input type="text" class="box" id="telefone1" name="telefone1"
-                    placeholder="Informe o Contato do cliente" required> <br>
-
-                <label for="telefone2">Telefone:</label>
-                <input type="text" class="box" id="telefone2" name="telefone2"
-                    placeholder="Informe o Contato do cliente"> <br>
-
-                <label for="telefone3">Telefone:</label>
-                <input type="text" class="box" id="telefone3" name="telefone3"
-                    placeholder="Informe o Contato do cliente"> <br>
-
+                <textarea id="descricao" class="descricao" name="descricao" required></textarea>
+            
+                <label for="endereco" class="label">Endereço:</label>
+                <textarea id="endereco" class="descricao" name="endereco" placeholder="Informe o endereço do cliente" required></textarea>
+            
+                <label for="referencia" class="label">Ponto de Referência:</label>
+                <input type="text" id="referencia" class="box" name="referencia" placeholder="Informe um Ponto de Referência:">
+            
+                <label for="localizacao" class="label">Geolocalização:</label>
+                <textarea id="localizacao" class="geo" name="localizacao" placeholder="Informe o link da localização do cliente"></textarea>
+            
+                <label for="telefone1" class="label">Telefone:</label>
+                <input type="text" class="box" id="telefone1" name="telefone1" placeholder="Informe o Contato do cliente" required>
+            
+                <label for="telefone2" class="label">Telefone:</label>
+                <input type="text" class="box" id="telefone2" name="telefone2" placeholder="Informe o Contato do cliente">
+            
+                <label for="telefone3" class="label">Telefone:</label>
+                <input type="text" class="box" id="telefone3" name="telefone3" placeholder="Informe o Contato do cliente">
             </div>
+            
+            
+
             <div class="section section2">
-
                 <label for="contrato">Contrato:</label>
-                <input type="text" class="box" id="contrato" name="contrato" placeholder="Informe o Contrato do cliente"
-                    required> <br>
-
+                <input type="text" class="box" id="contrato" name="contrato" placeholder="Informe o Contrato do cliente" required>
+            
                 <label for="ppoe_login">Login PPOE:</label>
-                <input type="text" class="boxp" id="ppoe_login" name="ppoe_login" placeholder="Informe o login do PPOE"
-                    required>
-                <br>
-
+                <input type="text" class="boxp" id="ppoe_login" name="ppoe_login" placeholder="Informe o login do PPOE" required>
+            
                 <label for="ppoe_senha">Senha PPOE:</label>
-                <input type="text" class="boxp" id="ppoe_senha" name="ppoe_senha" placeholder="Informe a senha do PPOE"
-                    required>
-                <br>
-
+                <input type="text" class="boxp" id="ppoe_senha" name="ppoe_senha" placeholder="Informe a senha do PPOE" required>
+            
                 <label for="vlan" id="lvlan">VLAN ID:</label>
-                <input type="text" class="box" id="vlan" name="vlan" placeholder="0000" maxlength="4" required> <br>
-
+                <input type="text" class="box" id="vlan" name="vlan" placeholder="0000" maxlength="4" required>
+            
                 <label for="modelo1">Modelo do Equipamento 1:</label>
-                <input type="text" class="box" id="modelo1" name="modelo1"
-                    placeholder="Informe número de série do equipamento" required> <br>
-
+                <input type="text" class="box" id="modelo1" name="modelo1" placeholder="Informe número de série do equipamento" required>
+            
                 <label for="equipamento1">Nº de Série do Equipamento 1:</label>
-                <input type="text" class="box" id="equipamento1" name="equipamento1"
-                    placeholder="Informe número de série do equipamento" required> <br>
-
+                <input type="text" class="box" id="equipamento1" name="equipamento1" placeholder="Informe número de série do equipamento" required>
+            
                 <label for="modelo2">Modelo do Equipamento 2:</label>
-                <input type="text" class="box" id="modelo2" name="modelo2"
-                    placeholder="Informe número de série do equipamento">
-                <br>
-
-
+                <input type="text" class="box" id="modelo2" name="modelo2" placeholder="Informe número de série do equipamento">
+            
                 <label for="equipamento2">Nº de Série do Equipamento 2:</label>
-                <input type="text" class="box" id="equipamento2" name="equipamento2"
-                    placeholder="Informe número de série do equipamento"> <br>
-
+                <input type="text" class="box" id="equipamento2" name="equipamento2" placeholder="Informe número de série do equipamento">
+            
                 <label for="potencia">Potência:</label>
-                <input type="text" class="box" id="potencia" name="potencia" placeholder="-00.00"> <br>
-                <br>
-
+                <input type="text" class="box" id="potencia" name="potencia" placeholder="-00.00" required>
+            
                 <div>
+                    <legend><b>Anexou o Print da OLT nos Anexos?</b></legend>
                     <label>
-                        <legend><b>Anexou o Print da OLT nos Anexos?</b></legend>
-                        <label>
-                            <input type="checkbox" name="anexo" value="sim" required> Sim
-                        </label>
-                        <br>
-                        <label>
-                            <input type="checkbox" name="anexo" value="nao"> Não
-                        </label>
-                        <br>
-                        <p id="mensagem" style="font-weight: bold; color: red;"></p>
+                        <input type="checkbox" name="anexo" value="sim" required> Sim
+                    </label>
+                    <br>
+                    <label>
+                        <input type="checkbox" name="anexo" value="nao"> Não
+                    </label>
+                    <br>
+                    <p id="mensagem" style="font-weight: bold; color: red;"></p>
 
-                </div>
-
-
-                <label>
                     <legend><b>Ajustou a Controladora?</b></legend>
                     <label>
                         <input type="checkbox" name="controladora" value="yes" required> Sim
@@ -142,43 +116,38 @@
                     </label>
                     <br>
                     <p id="mensagem2" style="font-weight: bold; color: red;"></p>
-            </div>
 
 
-
-            <div class="container">
-                <div class="center">
-                    <button type="submit" class="button" id="btn-enviar">
-                        <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
-                            <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
-                            <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
-                        </svg>
-                        <span><b>Enviar</b></span>
-                    </button>
                 </div>
             </div>
 
-            <div class="section section3">
+           
 
-                <p>Resultados:</p>
+         
 
-                <span>=================================</span>
-                <ul id="resultados"></ul>
-                <span>=================================</span>
+           
+        </div>
 
-                <div class="container2">
-                    <div class="center">
-                        <button type="submit" class="button" id="btn-copiar">
-                            <svg width="180px" height="60px" viewBox="0 0 180 60" class="border">
-                                <polyline points="179,1 179,59 1,59 1,1 179,1" class="bg-line" />
-                                <polyline points="179,1 179,59 1,59 1,1 179,1" class="hl-line" />
-                            </svg>
-                            <span><b>Copiar os Dados</b></span>
-                        </button>
-                    </div>
+        <div class="section section3">
 
-                </div>
-            </div>
+            <p>Resultados:</p>
+
+            <span>=================================</span>
+            <ul id="resultados"></ul>
+            <span>=================================</span>
+            <br>
+
+            <button type="submit" class="button" id="btn-enviar">
+                <span><b>Enviar</b></span>
+            </button>
+            <button type="submit" class="button" id="btn-copiar">
+                <span><b>Copiar os Dados</b></span>
+            </button>
+
+
+        </div>
+
+
 
     </form>
 
