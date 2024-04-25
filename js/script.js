@@ -45,11 +45,13 @@ class GetValores {
         const formElements = this.formulario.elements;
         for (const element of formElements) {
             if (element.id) {
-                formData[element.id] = element.value.replace(/\n/g, '<br>');
+                // Ignorar as quebras de linha (\n) ao salvar os valores
+                formData[element.id] = element.value;
             }
         }
         return formData;
     }
+    
 
     clearFormFields() {
         const formElements = this.formulario.elements;
@@ -66,9 +68,17 @@ class GetValores {
                 const resultadoItem = document.createElement('li');
                 resultadoItem.textContent = `${key}: ${value}`;
                 this.resultados.appendChild(resultadoItem);
+    
+                // Adicionar título
+                const resultadoTitulo = document.createElement('li');
+                resultadoTitulo.textContent = ``;
+                this.resultados.appendChild(resultadoTitulo);
+    
+                
             }
         }
     }
+    
     
 
     copiarParaAreaDeTransferencia() {
