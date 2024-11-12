@@ -58,12 +58,20 @@ document.getElementById('ordemServico').addEventListener('submit', function(even
         return; // Impede o envio do formulário
     }
 
+    // Capturar valores de "Tipo de Atendimento" e "Período Preferencial"
+    const tipoAtendimento = document.getElementById('tipoAtendimento').value;
+    const periodoPreferencial = document.getElementById('periodoPreferencial').value;
+
     // Coleta os dados do formulário
     const formData = new FormData(this);
     const data = {};
     formData.forEach((value, key) => {
         data[key] = value;
     });
+
+    // Adiciona os valores de "Tipo de Atendimento" e "Período Preferencial" ao objeto data
+    data['Tipo de Atendimento'] = tipoAtendimento;
+    data['Período Preferencial'] = periodoPreferencial;
 
     console.log(data); // Aqui você pode fazer a requisição para a API ou processar os dados de outra maneira
 
