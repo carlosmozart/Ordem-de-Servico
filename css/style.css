@@ -1,198 +1,170 @@
-@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@300;400;500;600;700;800&display=swap');
+/* cs/style.css */
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-  font-family: 'Oxanium', cursive;
+  font-family: Arial, sans-serif;
 }
 
 body {
-
-  text-align: center;
-  background: linear-gradient(to bottom, #ffa500, #fff);
+  background: linear-gradient(135deg, #fbe9e7, #ffcc80); /* Gradiente leve em tons de laranja */
+  display: flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
-}
-
-.box {
-  width: 300px;
-  height: 30px;
-  border-radius: 10px;
-  text-transform: uppercase;
-
-}
-
-.boxp {
-  width: 300px;
-  height: 30px;
-  border-radius: 10px;
-  margin: auto;
-
-}
-
-
-
-.geo {
-  width: 300px;
-  height: 30px;
-  border-radius: 10px;
-  margin: auto;
-}
-
-.descricao {
-  width: 300px;
-  height: 100px;
-  border-radius: 10px;
-  text-transform: capitalize;
-  margin: auto;
-  display: inline-block; /* Garante que o textarea ocupe a largura definida */
-  border: 1px solid #000000;
-  /* Outros estilos conforme necessário */
-}
-
-input[type=text] {
-  border-radius: 10px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  box-shadow: 1px 1px 2px #333333;
-  -moz-box-shadow: 1px 1px 2px #333333;
-  -webkit-box-shadow: 1px 1px 2px #333333;
-  background: #cccccc;
-  border: 1px solid #000000;
-
-}
-
-input[type=text]:hover,
-textarea:hover {
-  background: #ffffff;
-  border: 1px solid #990000;
-}
-
-input[type=submit] {
-  background: #006699;
-  color: #ffffff;
-}
-
-textarea {
-  border: 1px solid #000000;
-  background: #cccccc;
-  width: 150px;
-  height: 100px;
-  border-radius: 4px;
-  -moz-border-radius: 4px;
-  -webkit-border-radius: 4px;
-  box-shadow: 1px 1px 2px #333333;
-  -moz-box-shadow: 1px 1px 2px #333333;
-  -webkit-box-shadow: 1px 1px 2px #333333;
+  padding: 20px;
 }
 
 .container {
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  left: 85%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.container2 {
-  width: 100px;
-  height: 100px;
-  position: absolute;
-  left: 85%;
-  top: 97%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.center {
-  width: 180px;
-  height: 60px;
-  position: absolute;
-}
-
-.button {
-  width: 180px;
-  height: 60px;
-  cursor: pointer;
-  background: transparent;
-  border: 1px solid #ffa500;
-  outline: none;
-  transition: 1s ease-in-out;
+  width: 100%;
+  max-width: 1080px; /* Redução na largura máxima para tornar mais compacto */
+  padding: 20px;
+  margin: auto;
+  background-color: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
 }
 
-svg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  fill: none;
-  stroke: #fff;
-  stroke-dasharray: 150 480;
-  stroke-dashoffset: 150;
-  transition: 1s ease-in-out;
+img {
+  display: block;
+  margin: 0 auto 20px;
+  max-width: 120px; /* Logo centralizado e menor */
 }
 
-.button:hover {
-  transition: 1s ease-in-out;
-  background: #ffa500;
-}
-
-.button:hover svg {
-  stroke-dashoffset: -480;
-}
-
-.button span {
-  color: black;
-  font-weight: bold;
-  font-size: 18px;
-  font-weight: 100;
-}
-
-label {
-  display: inline-block;
-  width: 240px;
-  text-align: start;
-  padding-right: 10px;
-  padding-bottom: 20px;
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .dashboard {
   display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  border-radius: 10;
+  gap: 20px;
 }
 
 .section {
-  flex: 1;
-  padding: 20px;
-  border-radius: 10;
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  flex: 1 1 100%;
+}
+
+.section1, .section2 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.section label {
+  font-weight: bold;
+  color: #f57c00; /* Cor laranja da identidade visual */
+  margin-bottom: 5px;
+}
+
+.box, .boxp, .descricao, .geo {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.box:focus, .boxp:focus, .descricao:focus, .geo:focus {
+  border-color: #f57c00;
+  box-shadow: 0 0 5px rgba(245, 124, 0, 0.4);
+}
+
+.button {
+  background-color: #f57c00;
+  color: #ffffff;
+  border: none;
+  padding: 8px 12px; /* Botões menores e mais discretos */
+  font-size: 0.9rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 5px;
+}
+
+.button:hover {
+  background-color: #fb8c00;
+}
+
+/* Estilo dos botões de adição (+) e remoção (-) */
+#addTelefone, #addEquipamento, .remover {
+  padding: 4px;
+  font-size: 1rem;
+  width: auto; /* Remove a largura fixa */
+  min-width: 30px; /* Define um tamanho mínimo compacto */
+  text-align: center;
+  background-color: #f57c00; /* Cor laranja da identidade visual */
+  color: #ffffff;
+  border: none;
+  border-radius: 4px; /* Bordas arredondadas para visual moderno */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#addTelefone:hover, #addEquipamento:hover, .remover:hover {
+  background-color: #fb8c00;
+}
+
+.remover {
+  background-color: #f44336; /* Cor vermelha para o botão de remoção */
+}
+
+.remover:hover {
+  background-color: #e53935; /* Tom mais escuro de vermelho ao passar o mouse */
+}
+
+.result-section {
   text-align: center;
 }
 
-
-.input-container {
-    display: flex;
-    align-items: center;
+.result-section p {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
 }
 
-.label {
-    flex: 0 0 auto;
-    margin-right: 10px; 
+#resultados {
+  list-style-type: none;
+  padding: 10px;
+  background-color: #ffeb3b;
+  border-radius: 8px;
 }
 
-.descricao {
-    flex: 1;
-   
-    height: 100px;
-    border-radius: 10px;
-    text-transform: capitalize;
-    border: 1px solid #000000;
-    
+span {
+  display: block;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  color: #777;
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+      flex-direction: column;
+  }
+
+  .section {
+      flex: 1 1 100%;
+  }
+}
+#resultados p {
+  margin-bottom: 15px; /* Adiciona espaçamento entre as linhas */
+  font-size: 16px; /* Ajuste o tamanho da fonte conforme necessário */
+  font-family: Arial, sans-serif;
+}
+
+#resultados {
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  color: #333;
 }
