@@ -5,157 +5,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-
     <title>Ordem de Serviço</title>
 </head>
 
 <body>
-    <img src="images/logo.png">
+    <div class="container">
+        <img src="images/logo.png" alt="Logo da Empresa">
 
-    <form id="ordemServico">
+        <form id="ordemServico">
+            <div class="dashboard">
+                <!-- Seção 1: Tipo de Atendimento e Informações Gerais -->
+                <div class="section section1">
+                    <label for="titulo" class="label">Tipo de Atendimento:</label>
+                    <select id="Título" class="box">
+                        <option value=""></option>
+                        <option value="ANÁLISE DE CONEXÃO">ANÁLISE DE CONEXÃO</option>
+                        <option value="DESCONECTADO">DESCONECTADO</option>
+                        <option value="ESPECIALIZADO">ESPECIALIZADO</option>
+                        <option value="POTÊNCIA IRREGULAR">POTÊNCIA IRREGULAR</option>
+                        <option value="MUDANÇA DE PONTO">MUDANÇA DE PONTO</option>
+                        <option value="MUDANÇA DE ENDEREÇO">MUDANÇA DE ENDEREÇO</option>
+                        <option value="PONTO EXTRA">PONTO EXTRA</option>
+                        <option value="AJUSTE DE FIBRA">AJUSTE DE FIBRA</option>
+                        <option value="TROCA DE EQUIPAMENTO">TROCA DE EQUIPAMENTO</option>
+                        <option value="TROCA DE SENHA">TROCA DE SENHA</option>
+                        <option value="TELEFONIA">TELEFONIA</option>
+                    </select>
 
-        <div class="dashboard">
-            <div class="section section1">
-                <label for="titulo" class="label">Tipo de Atendimento:</label>
-                <select id="Título" class="box">
-                    <option value=""></option>
-                    <option value="ANÁLISE DE CONEXÃO">ANÁLISE DE CONEXÃO</option>
-                    <option value="DESCONECTADO">DESCONECTADO</option>
-                    <option value="ESPECIALIZADO">ESPECIALIZADO</option>
-                    <option value="POTÊNCIA IRREGULAR">POTÊNCIA IRREGULAR</option>
-                    <option value="MUDANÇA DE PONTO">MUDANÇA DE PONTO</option>
-                    <option value="MUDANÇA DE ENDEREÇO">MUDANÇA DE ENDEREÇO</option>
-                    <option value="PONTO EXTRA">PONTO EXTRA</option>
-                    <option value="AJUSTE DE FIBRA">AJUSTE DE FIBRA</option>
-                    <option value="TROCA DE EQUIPAMENTO">TROCA DE EQUIPAMENTO</option>
-                    <option value="TROCA DE SENHA">TROCA DE SENHA</option>
-                    <option value="TELEFONIA">TELEFONIA</option>
-                </select>
-            
-                <label for="tituloh" class="label">Período Preferencial:</label>
-                <select id="Período" class="box">
-                    <option value=""></option>
-                    <option value="MANHÃ">MANHÃ</option>
-                    <option value="TARDE">TARDE</option>
-                    <option value="COMERCIAL">COMERCIAL</option>
-                </select>
-            
-                <label for="protocolo" class="label">Protocolo:</label>
-                <input type="text" class="box" id="Protocolo" name="protocolo" placeholder="Protocolo de Atendimento" required>
-            
-                <label for="descricao" class="label">Descrição do Problema:</label>
-                <textarea id="Descrição" class="descricao" name="descricao" required></textarea>
-            
-                <label for="endereco" class="label">Endereço:</label>
-                <textarea id="Endereço" class="descricao" name="endereco" placeholder="Informe o endereço do cliente" required></textarea>
-            
-                <label for="referencia" class="label">Ponto de Referência:</label>
-                <input type="text" id="Referência" class="box" name="referencia" placeholder="Informe um Ponto de Referência:">
-            
-                <label for="localizacao" class="label">Geolocalização:</label>
-                <textarea id="Localização" class="geo" name="localizacao" placeholder="Informe o link da localização do cliente"></textarea>
-            
-                <label for="telefone1" class="label">Telefone:</label>
-                <input type="text" class="box" id="Telefone1" name="telefone1" placeholder="Informe o Contato do cliente" required>
-            
-                <label for="telefone2" class="label">Telefone:</label>
-                <input type="text" class="box" id="Telefone2" name="telefone2" placeholder="Informe o Contato do cliente">
-            
-                <label for="telefone3" class="label">Telefone:</label>
-                <input type="text" class="box" id="Telefone3" name="telefone3" placeholder="Informe o Contato do cliente">
-            </div>
-            
-            
+                    <label for="tituloh" class="label">Período Preferencial:</label>
+                    <select id="Período" class="box">
+                        <option value=""></option>
+                        <option value="MANHÃ">MANHÃ</option>
+                        <option value="TARDE">TARDE</option>
+                        <option value="COMERCIAL">COMERCIAL</option>
+                    </select>
 
-            <div class="section section2">
-                <label for="contrato">Contrato:</label>
-                <input type="text" class="box" id="Contrato" name="contrato" placeholder="Informe o Contrato do cliente" required>
-            
-                <label for="ppoe_login">Login PPOE:</label>
-                <input type="text" class="boxp" id="Login PPOE" name="ppoe_login" placeholder="Informe o login do PPOE" required>
-            
-                <label for="ppoe_senha">Senha PPOE:</label>
-                <input type="text" class="boxp" id="Senha PPOE" name="ppoe_senha" placeholder="Informe a senha do PPOE" required>
-            
-                <label for="vlan" id="lvlan">VLAN ID:</label>
-                <input type="text" class="box" id="VLAN" name="vlan" placeholder="0000" maxlength="4" required>
-            
-                <label for="modelo1">Modelo do Equipamento 1:</label>
-                <input type="text" class="box" id="Modelo 1" name="modelo1" placeholder="Informe número de série do equipamento" required>
-            
-                <label for="equipamento1">Nº de Série do Equipamento 1:</label>
-                <input type="text" class="box" id="Equipamento 1" name="equipamento1" placeholder="Informe número de série do equipamento" required>
-            
-                <label for="modelo2">Modelo do Equipamento 2:</label>
-                <input type="text" class="box" id="Modelo 2" name="modelo2" placeholder="Informe número de série do equipamento">
-            
-                <label for="equipamento2">Nº de Série do Equipamento 2:</label>
-                <input type="text" class="box" id="Equipamento 2" name="equipamento2" placeholder="Informe número de série do equipamento">
-            
-                <label for="potencia">Potência:</label>
-                <input type="text" class="box" id="Potência" name="potencia" placeholder="-00.00" required>
-            
-                <div>
-                    <legend><b>Anexou o Print da OLT nos Anexos?</b></legend>
-                    <label>
-                        <input type="checkbox" name="anexo" value="sim" required> Sim
-                    </label>
-                    <br>
-                    <label>
-                        <input type="checkbox" name="anexo" value="nao"> Não
-                    </label>
-                    <br>
-                    <p id="mensagem" style="font-weight: bold; color: red;"></p>
+                    <label for="protocolo" class="label">Protocolo:</label>
+                    <input type="text" class="box" id="Protocolo" name="protocolo"
+                        placeholder="Protocolo de Atendimento" required>
 
-                    <legend><b>Ajustou a Controladora?</b></legend>
-                    <label>
-                        <input type="checkbox" name="controladora" value="yes" required> Sim
-                    </label>
-                    <br>
-                    <label>
-                        <input type="checkbox" name="controladora" value="no"> Não
-                    </label>
-                    <br>
-                    <p id="mensagem2" style="font-weight: bold; color: red;"></p>
+                    <label for="descricao" class="label">Descrição do Problema:</label>
+                    <textarea id="Descrição" class="descricao" name="descricao" required></textarea>
 
+                    <label for="endereco" class="label">Endereço:</label>
+                    <textarea id="Endereço" class="descricao" name="endereco"
+                        placeholder="Informe o endereço do cliente" required></textarea>
+
+                    <label for="referencia" class="label">Ponto de Referência:</label>
+                    <input type="text" id="Referência" class="box" name="referencia"
+                        placeholder="Informe um Ponto de Referência:">
+
+                    <label for="localizacao" class="label">Geolocalização:</label>
+                    <textarea id="Localização" class="geo" name="localizacao"
+                        placeholder="Informe o link da localização do cliente"></textarea>
+
+                    <label for="telefone1" class="label">Telefone:</label>
+                    <input type="text" class="box" id="Telefone1" name="telefone1"
+                        placeholder="Informe o Contato do cliente" required>
+                    <button type="button" id="addTelefone" class="button">+</button>
+                    <div id="telefoneFields"></div>
+                </div>
+
+                <!-- Seção 2: Dados de Equipamento -->
+                <div class="section section2">
+                    <label for="contrato">Contrato:</label>
+                    <input type="text" class="box" id="Contrato" name="contrato"
+                        placeholder="Informe o Contrato do cliente" required>
+
+                    <label for="ppoe_login">Login PPOE:</label>
+                    <input type="text" class="boxp" id="Login PPOE" name="ppoe_login"
+                        placeholder="Informe o login do PPOE" required>
+
+                    <label for="ppoe_senha">Senha PPOE:</label>
+                    <input type="text" class="boxp" id="Senha PPOE" name="ppoe_senha"
+                        placeholder="Informe a senha do PPOE" required>
+
+                    <label for="vlan" id="lvlan">VLAN ID:</label>
+                    <input type="text" class="box" id="VLAN" name="vlan" placeholder="0000" maxlength="4" required>
+
+                    <label for="modelo1">Modelo do Equipamento 1:</label>
+                    <input type="text" class="box" id="Modelo1" name="modelo1"
+                        placeholder="Informe o modelo do equipamento" required>
+
+                    <label for="equipamento1">Nº de Série do Equipamento 1:</label>
+                    <input type="text" class="box" id="Equipamento1" name="equipamento1"
+                        placeholder="Informe número de série do equipamento" required>
+
+                    <button type="button" id="addEquipamento" class="button">+</button>
+                    <div id="equipamentoFields"></div>
+
+                    <label for="potencia">Potência:</label>
+                    <input type="text" class="box" id="Potência" name="potencia" placeholder="-00.00" required>
+
+                    <!-- Dropdown para "Anexou o Print da OLT nos Anexos?" -->
+                    <label for="printOLT">Anexou o Print da OLT nos Anexos?</label>
+                    <select id="printOLT" class="box">
+                        <option value="nao">Não</option>
+                        <option value="sim">Sim</option>
+                    </select>
+
+                    <!-- Dropdown para "Ajustou a Controladora?" -->
+                    <label for="ajustouControladora">Ajustou a Controladora?</label>
+                    <select id="ajustouControladora" class="box">
+                        <option value="nao">Não</option>
+                        <option value="sim">Sim</option>
+                    </select>
 
                 </div>
+
+                <!-- Seção 3: Resultados -->
+                <div class="section section3">
+                    <label class="label">Resultados:</label>
+                    <span>=================================</span>
+                    <ul id="resultados"></ul>
+                    <span>=================================</span>
+                    <br>
+                    <button type="submit" class="button" id="btn-enviar"><b>Enviar</b></button>
+                    <button type="button" class="button" id="btn-copiar"><b>Copiar os Dados</b></button>
+                </div>
             </div>
+        </form>
 
-            
-            <div class="section">
-
-                <p>Resultados:</p>
-    
-                <span>=================================</span>
-                <ul id="resultados"></ul>
-                <span>=================================</span>
-                <br>
-    
-                <button type="submit" class="button" id="btn-enviar">
-                    <span><b>Enviar</b></span>
-                </button>
-                <button type="submit" class="button" id="btn-copiar">
-                    <span><b>Copiar os Dados</b></span>
-                </button>
-    
-    
-            </div>
-
-         
-
-           
-        </div>
-
-       
-
-
-
-    </form>
-
-
+        <span><b>Desenvolvido por Carlos Mozart</b></span>
     </div>
-    <span><b>Desenvolvido por Carlos Mozart</b></span>
+
     <script src="./js/script.js"></script>
 </body>
 
