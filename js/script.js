@@ -75,6 +75,11 @@ document.getElementById('ordemServico').addEventListener('submit', function(even
         listItem.textContent = capitalizeWords(`${key}: ${value}`);
         resultados.appendChild(listItem);
     }
+
+    // Limpar todos os campos do formulário após gerar os resultados
+    this.reset(); // Limpa todos os campos
+    document.getElementById('telefoneFields').innerHTML = ''; // Limpa campos de telefone
+    document.getElementById('equipamentoFields').innerHTML = ''; // Limpa campos de equipamento
 });
 
 // Função para copiar os dados para a área de transferência
