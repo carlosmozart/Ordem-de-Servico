@@ -1,98 +1,97 @@
-class GetValores {
-    constructor() {
-        this.formulario = document.getElementById('ordemServico');
-        this.resultados = document.getElementById('resultados');
-        this.botaoCopiar = document.getElementById("btn-copiar");
-        this.minhaLista = document.getElementById("resultados");
-        this.mensagem = document.getElementById('mensagem');
-        this.mensagem2 = document.getElementById('mensagem2');
+// Função para adicionar um campo de telefone
+document.getElementById('addTelefone').addEventListener('click', function() {
+    const telefoneFields = document.getElementById('telefoneFields');
+    const telefoneDiv = document.createElement('div');
+    telefoneDiv.classList.add('telefone-field');
 
-        this.setupCheckboxEventListeners('anexo', this.mensagem, 'Então anexe o print!');
-        this.setupCheckboxEventListeners('controladora', this.mensagem2, 'Então ajuste a controladora!');
-
-        this.formulario.addEventListener('submit', this.enviarTextos.bind(this));
-        this.botaoCopiar.addEventListener("click", () => this.copiarParaAreaDeTransferencia());
-    }
-
-    setupCheckboxEventListeners(name, mensagemElement, mensagemText) {
-        const checkboxes = document.querySelectorAll(`input[name="${name}"]`);
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', () => {
-                checkboxes.forEach(otherCheckbox => {
-                    if (otherCheckbox !== checkbox) {
-                        otherCheckbox.checked = false;
-                    }
-                });
-
-                mensagemElement.textContent = (checkbox.value === 'nao' && checkbox.checked) ? mensagemText : '';
-                mensagemElement.style.display = (mensagemElement.textContent !== '') ? 'block' : 'none';
-            });
-        });
-    }
-
-    enviarTextos(event) {
-        event.preventDefault();
-        const formData = this.getFormData();
-
-        this.resultados.innerHTML = '';
-        this.clearFormFields();
-
-        this.renderFormData(formData);
-    }
-
-    getFormData() {
-        const formData = {};
-        const formElements = this.formulario.elements;
-        for (const element of formElements) {
-            if (element.id) {
-                // Ignorar as quebras de linha (\n) ao salvar os valores
-                formData[element.id] = element.value;
-            }
-        }
-        return formData;
-    }
+    telefoneDiv.innerHTML = `
+        <label for="telefone">Telefone:</label>
+        <input type="text" class="box" name="telefone" placeholder="Informe outro telefone">
+        <button type="button" class="remover" onclick="removeTelefone(this)">-</button>
+    `;
     
+    telefoneFields.appendChild(telefoneDiv);
+});
 
-    clearFormFields() {
-        const formElements = this.formulario.elements;
-        for (const element of formElements) {
-            if (element.id) {
-                element.value = '';
-            }
-        }
-    }
-
-    renderFormData(formData) {
-        for (const [key, value] of Object.entries(formData)) {
-            if (key !== 'btn-enviar' && key !== 'btn-copiar') {
-                const resultadoItem = document.createElement('li');
-                resultadoItem.textContent = `${key}: ${value}`;
-                this.resultados.appendChild(resultadoItem);
-    
-                // Adicionar título
-                const resultadoTitulo = document.createElement('li');
-                resultadoTitulo.textContent = ``;
-                this.resultados.appendChild(resultadoTitulo);
-    
-                
-            }
-        }
-    }
-    
-    
-
-    copiarParaAreaDeTransferencia() {
-        const listaTexto = Array.from(this.minhaLista.querySelectorAll("li")).map(item => item.textContent).join("\n");
-        const textarea = document.createElement("textarea");
-        textarea.value = listaTexto;
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand("copy");
-        document.body.removeChild(textarea);
-        alert("Lista copiada para a área de transferência!");
-    }
+// Função para remover um campo de telefone
+function removeTelefone(button) {
+    button.parentElement.remove();
 }
 
-window.addEventListener('load', () => {
-    const minhaInstancia = new GetValores();
+// Função para adicionar um campo de equipamento
+document.getElementById('addEquipamento').addEventListener('click', function() {
+    const equipamentoFields = document.getElementById('equipamentoFields');
+    const equipamentoDiv = document.createElement('div');
+    equipamentoDiv.classList.add('equipamento-field');
+
+    equipamentoDiv.innerHTML = `
+        <label for="modeloEquipamento">Modelo do Equipamento:</label>
+        <input type="text" class="box" name="modeloEquipamento" placeholder="Informe o modelo do equipamento">
+        <label for="serialEquipamento">Nº de Série do Equipamento:</label>
+        <input type="text" class="box" name="serialEquipamento" placeholder="Informe o número de série">
+        <button type="button" class="remover" onclick="removeEquipamento(this)">-</button>
+    `;
+    
+    equipamentoFields.appendChild(equipamentoDiv);
 });
+
+// Função para remover um campo de equipamento
+function removeEquipamento(button) {
+    button.parentElement.remove();
+}
+
+// Função para enviar o formulário
+document.getElementById('ordemServico').addEventListener('submit', function(event) {
+    event.preventDefault(); // Previne o envio padrão do formulário
+
+    // Verificar as respostas dos dropdowns e exibir alertas se necessário
+    const printOLT = document.getElementById('printOLT').value;
+    const ajustouControladora = document.getElementById('ajustouControladora').value;
+
+    if (printOLT === 'nao') {
+        alert('Então Anexe o Print!');
+        return; // Impede o envio do formulário
+    }
+
+    if (ajustouControladora === 'nao') {
+        alert('Então ajuste a controladora!');
+        return; // Impede o envio do formulário
+    }
+
+    // Coleta os dados do formulário
+    const formData = new FormData(this);
+    const data = {};
+    formData.forEach((value, key) => {
+        data[key] = value;
+    });
+
+    console.log(data); // Aqui você pode fazer a requisição para a API ou processar os dados de outra maneira
+
+    // Exibindo os dados preenchidos no formulário (para demonstração)
+    const resultados = document.getElementById('resultados');
+    resultados.innerHTML = ''; // Limpar resultados anteriores
+    for (let [key, value] of Object.entries(data)) {
+        const listItem = document.createElement('p');
+        listItem.textContent = capitalizeWords(`${key}: ${value}`);
+        resultados.appendChild(listItem);
+    }
+});
+
+// Função para copiar os dados para a área de transferência
+document.getElementById('btn-copiar').addEventListener('click', function() {
+    const resultados = document.getElementById('resultados');
+    const textToCopy = resultados.innerText || resultados.textContent;
+
+    navigator.clipboard.writeText(textToCopy).then(function() {
+        alert('Dados copiados com sucesso!');
+    }).catch(function() {
+        alert('Falha ao copiar os dados.');
+    });
+});
+
+// Função para capitalizar a primeira letra de cada palavra
+function capitalizeWords(str) {
+    return str.replace(/\b\w/g, function(char) {
+        return char.toUpperCase();
+    });
+}
