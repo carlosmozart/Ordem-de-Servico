@@ -3,24 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('ordemServico').addEventListener('submit', function(event) {
         event.preventDefault(); // Previne o envio padrão do formulário
 
-        // Captura os valores dos campos de "Tipo de Atendimento" e "Período Preferencial"
-        const tipoAtendimento = document.getElementById('Título').value;  // Captura o valor de "Tipo de Atendimento"
-        const periodoPreferencial = document.getElementById('Período').value;  // Captura o valor de "Período Preferencial"
-
-        // Verificar as respostas dos dropdowns e exibir alertas se necessário
-        const printOLT = document.getElementById('printOLT').value;
-        const ajustouControladora = document.getElementById('ajustouControladora').value;
-
-        if (printOLT === 'nao') {
-            alert('Então Anexe o Print!');
-            return; // Impede o envio do formulário
-        }
-
-        if (ajustouControladora === 'nao') {
-            alert('Então ajuste a controladora!');
-            return; // Impede o envio do formulário
-        }
-
         // Coleta os dados do formulário
         const formData = new FormData(this);
         const data = {};
@@ -28,34 +10,32 @@ document.addEventListener('DOMContentLoaded', function() {
             data[key] = value;
         });
 
-        // Adiciona os valores de "Tipo de Atendimento" e "Período Preferencial" ao objeto data
-        data['Tipo de Atendimento'] = tipoAtendimento;
-        data['Período Preferencial'] = periodoPreferencial;
+        // Captura os valores dos dropdowns
+        const tipoAtendimento = document.getElementById('tipoatendimento').value;
+        const periodo = document.getElementById('periodo').value;
 
-        // Exibe os dados preenchidos no formulário (para demonstração)
+        // Exibe os dados preenchidos no formulário
         const resultados = document.getElementById('resultados');
         resultados.innerHTML = ''; // Limpa resultados anteriores
 
-        // Adiciona "Tipo de Atendimento" e "Período Preferencial" primeiro
+        // Adiciona os valores dos dropdowns no topo do resultado
         const tipoAtendimentoItem = document.createElement('p');
-        tipoAtendimentoItem.textContent = `Tipo de Atendimento: ${capitalizeWords(tipoAtendimento)}`;
+        tipoAtendimentoItem.textContent = `Tipo de Atendimento: ${capitalizeFirstLetter(tipoAtendimento)}`;
         resultados.appendChild(tipoAtendimentoItem);
 
-        const periodoPreferencialItem = document.createElement('p');
-        periodoPreferencialItem.textContent = `Período Preferencial: ${capitalizeWords(periodoPreferencial)}`;
-        resultados.appendChild(periodoPreferencialItem);
+        const periodoItem = document.createElement('p');
+        periodoItem.textContent = `Período: ${capitalizeFirstLetter(periodo)}`;
+        resultados.appendChild(periodoItem);
 
-        // Adiciona os outros campos do formulário ao resultado
+        // Adiciona os campos ao resultado
         for (let [key, value] of Object.entries(data)) {
-            if (key !== 'Tipo de Atendimento' && key !== 'Período Preferencial') { // Evita duplicação
-                const listItem = document.createElement('p');
-                listItem.textContent = capitalizeWords(`${key}: ${value}`);
-                resultados.appendChild(listItem);
-            }
+            const listItem = document.createElement('p');
+            listItem.textContent = `${capitalizeFirstLetter(key)}: ${value}`;
+            resultados.appendChild(listItem);
         }
 
-        // Limpar todos os campos do formulário após gerar os resultados
-        this.reset(); // Limpa todos os campos
+        // Limpa todos os campos após gerar os resultados
+        this.reset();
         document.getElementById('telefoneFields').innerHTML = ''; // Limpa campos de telefone
         document.getElementById('equipamentoFields').innerHTML = ''; // Limpa campos de equipamento
     });
@@ -63,51 +43,78 @@ document.addEventListener('DOMContentLoaded', function() {
     // Função para adicionar novos campos de telefone
     document.getElementById('addTelefone').addEventListener('click', function() {
         const telefoneFields = document.getElementById('telefoneFields');
+        const telefoneInputContainer = document.createElement('div');
+        
         const telefoneInput = document.createElement('input');
         telefoneInput.type = 'text';
         telefoneInput.classList.add('box');
         telefoneInput.name = 'telefone';
         telefoneInput.placeholder = 'Telefone Adicional';
-        telefoneFields.appendChild(telefoneInput);
+        
+        const removeButton = document.createElement('button');
+        removeButton.textContent = '-';
+        removeButton.type = 'button';
+        removeButton.classList.add('button');
+        removeButton.addEventListener('click', function() {
+            telefoneFields.removeChild(telefoneInputContainer);
+        });
+        
+        telefoneInputContainer.appendChild(telefoneInput);
+        telefoneInputContainer.appendChild(removeButton);
+        telefoneFields.appendChild(telefoneInputContainer);
     });
 
     // Função para adicionar novos campos de equipamento
     document.getElementById('addEquipamento').addEventListener('click', function() {
         const equipamentoFields = document.getElementById('equipamentoFields');
+        const equipamentoInputContainer = document.createElement('div');
+        
         const equipamentoInput = document.createElement('input');
         equipamentoInput.type = 'text';
         equipamentoInput.classList.add('box');
         equipamentoInput.name = 'equipamento';
         equipamentoInput.placeholder = 'Equipamento Adicional';
-        equipamentoFields.appendChild(equipamentoInput);
+        
+        const removeButton = document.createElement('button');
+        removeButton.textContent = '-';
+        removeButton.type = 'button';
+        removeButton.classList.add('button');
+        removeButton.addEventListener('click', function() {
+            equipamentoFields.removeChild(equipamentoInputContainer);
+        });
+        
+        equipamentoInputContainer.appendChild(equipamentoInput);
+        equipamentoInputContainer.appendChild(removeButton);
+        equipamentoFields.appendChild(equipamentoInputContainer);
+    });
+
+    // Função de copiar dados para a área de transferência
+    document.getElementById('btn-copiar').addEventListener('click', function() {
+        const resultados = document.getElementById('resultados');
+        const textToCopy = Array.from(resultados.children)
+            .map(child => child.textContent + '\n') // Garante que cada campo tenha uma linha em branco
+            .join('\n');
+
+        // Copiar para a área de transferência
+        navigator.clipboard.writeText(textToCopy).then(() => {
+            alert('Dados copiados!');
+        }).catch(err => {
+            alert('Erro ao copiar: ' + err);
+        });
     });
 });
 
-// Função para capitalizar as primeiras letras de cada palavra
-function capitalizeWords(str) {
-    return str.replace(/\b\w/g, char => char.toUpperCase());
+// Função para garantir que a primeira letra seja maiúscula
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Alterna o modo escuro
-    const toggleDarkMode = document.getElementById('toggleDarkMode');
-    toggleDarkMode.addEventListener('click', function() {
-        document.body.classList.toggle('dark-mode');
-
-        // Alterna a classe `dark-mode` para todos os elementos específicos
-        document.querySelectorAll('.container, .label, .box, .descricao, .geo, .button')
-            .forEach(element => element.classList.toggle('dark-mode'));
-        
-        // Salva a preferência de modo no localStorage
-        const isDarkMode = document.body.classList.contains('dark-mode');
-        localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
-    });
-
-    // Verifica a preferência do usuário para carregar o modo escuro ao abrir a página
-    const savedDarkMode = localStorage.getItem('darkMode');
-    if (savedDarkMode === 'enabled') {
-        document.body.classList.add('dark-mode');
-        document.querySelectorAll('.container, .label, .box, .descricao, .geo, .button')
-            .forEach(element => element.classList.add('dark-mode'));
-    }
+// Alterna o modo escuro
+document.getElementById('toggleDarkMode').addEventListener('click', function() {
+    document.body.classList.toggle('dark-mode');
+    document.querySelectorAll('.container, .label, .box, .descricao, .geo, .button')
+        .forEach(element => element.classList.toggle('dark-mode'));
+    
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
 });
