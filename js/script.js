@@ -35,10 +35,23 @@ document.addEventListener('DOMContentLoaded', function() {
         // Exibe os dados preenchidos no formulário (para demonstração)
         const resultados = document.getElementById('resultados');
         resultados.innerHTML = ''; // Limpa resultados anteriores
+
+        // Adiciona "Tipo de Atendimento" e "Período Preferencial" primeiro
+        const tipoAtendimentoItem = document.createElement('p');
+        tipoAtendimentoItem.textContent = `Tipo de Atendimento: ${capitalizeWords(tipoAtendimento)}`;
+        resultados.appendChild(tipoAtendimentoItem);
+
+        const periodoPreferencialItem = document.createElement('p');
+        periodoPreferencialItem.textContent = `Período Preferencial: ${capitalizeWords(periodoPreferencial)}`;
+        resultados.appendChild(periodoPreferencialItem);
+
+        // Adiciona os outros campos do formulário ao resultado
         for (let [key, value] of Object.entries(data)) {
-            const listItem = document.createElement('p');
-            listItem.textContent = capitalizeWords(`${key}: ${value}`);
-            resultados.appendChild(listItem);
+            if (key !== 'Tipo de Atendimento' && key !== 'Período Preferencial') { // Evita duplicação
+                const listItem = document.createElement('p');
+                listItem.textContent = capitalizeWords(`${key}: ${value}`);
+                resultados.appendChild(listItem);
+            }
         }
 
         // Limpar todos os campos do formulário após gerar os resultados
