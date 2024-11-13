@@ -13,13 +13,12 @@
         <img src="images/logo.png" alt="Logo da Empresa">
         <button id="toggleDarkMode" class="button">Modo Escuro</button>
 
-
         <form id="ordemServico">
             <div class="dashboard">
                 <!-- Seção 1: Tipo de Atendimento e Informações Gerais -->
                 <div class="section section1">
-                    <label for="titulo" class="label">Tipo de Atendimento:</label>
-                    <select id="Título" class="box">
+                    <label for="tipoatendimento" class="label">Tipo de Atendimento:</label>
+                    <select id="tipoatendimento" class="box">
                         <option value=""></option>
                         <option value="ANÁLISE DE CONEXÃO">ANÁLISE DE CONEXÃO</option>
                         <option value="DESCONECTADO">DESCONECTADO</option>
@@ -34,8 +33,8 @@
                         <option value="TELEFONIA">TELEFONIA</option>
                     </select>
 
-                    <label for="tituloh" class="label">Período Preferencial:</label>
-                    <select id="Período" class="box">
+                    <label for="periodo" class="label">Período Preferencial:</label>
+                    <select id="periodo" class="box">
                         <option value=""></option>
                         <option value="MANHÃ">MANHÃ</option>
                         <option value="TARDE">TARDE</option>
@@ -43,27 +42,22 @@
                     </select>
 
                     <label for="protocolo" class="label">Protocolo:</label>
-                    <input type="text" class="box" id="Protocolo" name="protocolo"
-                        placeholder="Protocolo de Atendimento" required>
+                    <input type="text" class="box" id="Protocolo" name="protocolo" placeholder="Protocolo de Atendimento" required>
 
                     <label for="descricao" class="label">Descrição do Problema:</label>
                     <textarea id="Descrição" class="descricao" name="descricao" required></textarea>
 
                     <label for="endereco" class="label">Endereço:</label>
-                    <textarea id="Endereço" class="descricao" name="endereco"
-                        placeholder="Informe o endereço do cliente" required></textarea>
+                    <textarea id="Endereço" class="descricao" name="endereco" placeholder="Informe o endereço do cliente" required></textarea>
 
                     <label for="referencia" class="label">Ponto de Referência:</label>
-                    <input type="text" id="Referência" class="box" name="referencia"
-                        placeholder="Informe um Ponto de Referência:">
+                    <input type="text" id="Referência" class="box" name="referencia" placeholder="Informe um Ponto de Referência:">
 
                     <label for="localizacao" class="label">Geolocalização:</label>
-                    <textarea id="Localização" class="geo" name="localizacao"
-                        placeholder="Informe o link da localização do cliente"></textarea>
+                    <textarea id="Localização" class="geo" name="localizacao" placeholder="Informe o link da localização do cliente"></textarea>
 
                     <label for="telefone1" class="label">Telefone:</label>
-                    <input type="text" class="box" id="Telefone1" name="telefone1"
-                        placeholder="Informe o Contato do cliente" required>
+                    <input type="text" class="box" id="Telefone1" name="telefone1" placeholder="Informe o Contato do cliente" required>
                     <button type="button" id="addTelefone" class="button">+</button>
                     <div id="telefoneFields"></div>
                 </div>
@@ -71,27 +65,22 @@
                 <!-- Seção 2: Dados de Equipamento -->
                 <div class="section section2">
                     <label for="contrato">Contrato:</label>
-                    <input type="text" class="box" id="Contrato" name="contrato"
-                        placeholder="Informe o Contrato do cliente" required>
+                    <input type="text" class="box" id="Contrato" name="contrato" placeholder="Informe o Contrato do cliente" required>
 
                     <label for="ppoe_login">Login PPOE:</label>
-                    <input type="text" class="boxp" id="Login PPOE" name="ppoe_login"
-                        placeholder="Informe o login do PPOE" required>
+                    <input type="text" class="boxp" id="Login PPOE" name="ppoe_login" placeholder="Informe o login do PPOE" required>
 
                     <label for="ppoe_senha">Senha PPOE:</label>
-                    <input type="text" class="boxp" id="Senha PPOE" name="ppoe_senha"
-                        placeholder="Informe a senha do PPOE" required>
+                    <input type="text" class="boxp" id="Senha PPOE" name="ppoe_senha" placeholder="Informe a senha do PPOE" required>
 
                     <label for="vlan" id="lvlan">VLAN ID:</label>
                     <input type="text" class="box" id="VLAN" name="vlan" placeholder="0000" maxlength="4" required>
 
                     <label for="modelo1">Modelo do Equipamento 1:</label>
-                    <input type="text" class="box" id="Modelo1" name="modelo1"
-                        placeholder="Informe o modelo do equipamento" required>
+                    <input type="text" class="box" id="Modelo1" name="modelo1" placeholder="Informe o modelo do equipamento" required>
 
                     <label for="equipamento1">Nº de Série do Equipamento 1:</label>
-                    <input type="text" class="box" id="Equipamento1" name="equipamento1"
-                        placeholder="Informe número de série do equipamento" required>
+                    <input type="text" class="box" id="Equipamento1" name="equipamento1" placeholder="Informe número de série do equipamento" required>
 
                     <button type="button" id="addEquipamento" class="button">+</button>
                     <div id="equipamentoFields"></div>
@@ -99,20 +88,17 @@
                     <label for="potencia">Potência:</label>
                     <input type="text" class="box" id="Potência" name="potencia" placeholder="-00.00" required>
 
-                    <!-- Dropdown para "Anexou o Print da OLT nos Anexos?" -->
                     <label for="printOLT">Anexou o Print da OLT nos Anexos?</label>
                     <select id="printOLT" class="box">
                         <option value="nao">Não</option>
                         <option value="sim">Sim</option>
                     </select>
 
-                    <!-- Dropdown para "Ajustou a Controladora?" -->
                     <label for="ajustouControladora">Ajustou a Controladora?</label>
                     <select id="ajustouControladora" class="box">
                         <option value="nao">Não</option>
                         <option value="sim">Sim</option>
                     </select>
-
                 </div>
 
                 <!-- Seção 3: Resultados -->
