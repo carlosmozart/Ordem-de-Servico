@@ -87,3 +87,27 @@ document.addEventListener('DOMContentLoaded', function() {
 function capitalizeWords(str) {
     return str.replace(/\b\w/g, char => char.toUpperCase());
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Alterna o modo escuro
+    const toggleDarkMode = document.getElementById('toggleDarkMode');
+    toggleDarkMode.addEventListener('click', function() {
+        document.body.classList.toggle('dark-mode');
+
+        // Alterna a classe `dark-mode` para todos os elementos específicos
+        document.querySelectorAll('.container, .label, .box, .descricao, .geo, .button')
+            .forEach(element => element.classList.toggle('dark-mode'));
+        
+        // Salva a preferência de modo no localStorage
+        const isDarkMode = document.body.classList.contains('dark-mode');
+        localStorage.setItem('darkMode', isDarkMode ? 'enabled' : 'disabled');
+    });
+
+    // Verifica a preferência do usuário para carregar o modo escuro ao abrir a página
+    const savedDarkMode = localStorage.getItem('darkMode');
+    if (savedDarkMode === 'enabled') {
+        document.body.classList.add('dark-mode');
+        document.querySelectorAll('.container, .label, .box, .descricao, .geo, .button')
+            .forEach(element => element.classList.add('dark-mode'));
+    }
+});
