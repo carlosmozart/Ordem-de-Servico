@@ -13,6 +13,7 @@ body {
   align-items: center;
   min-height: 100vh;
   padding: 20px;
+  transition: background 0.3s ease; /* Transição para a mudança do fundo */
 }
 
 .container {
@@ -154,7 +155,7 @@ span {
 
 /* Modo escuro */
 body.dark-mode {
-  background-color: #121212;
+  background: linear-gradient(135deg, #2e2e2e, #4f4f4f); /* Modificando o gradiente para o modo escuro */
   color: #ffffff;
 }
 
